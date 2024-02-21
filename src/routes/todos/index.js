@@ -14,10 +14,6 @@ TodosRouter.get("/byid", (req, res) => {
   res.status(StatusCodes.OK).send("Get Todo by id");
 });
 
-TodosRouter.post("/byuserid", (req, res) => {
-  res.status(StatusCodes.OK).send("Get Todo by user id");
-});
-
 TodosRouter.get("/all", (req, res) => {
   res.status(StatusCodes.OK).json(todos); // Annahme: todos ist dein Array mit Todos
 });
@@ -33,12 +29,6 @@ TodosRouter.get("/byuserid", (req, res) => {
 });
 
 // PUT REQUESTS
-TodosRouter.put("/mark", (req, res) => {
-  res.status(StatusCodes.OK).send("Todo als erledeigt markieren");
-});
-TodosRouter.put("/update", (req, res) => {
-  res.status(StatusCodes.OK).send("Todo aktuallisieren");
-});
 
 TodosRouter.put("/mark", (req, res) => {
   const todoId = req.body.todoId;
@@ -67,11 +57,6 @@ TodosRouter.post("/create", (req, res) => {
 TodosRouter.post("/todo", (req, res) => {
   const newTodo = req.body; 
   res.status(StatusCodes.CREATED).json(newTodo);
-});
-
-// DELETE REQUEST
-TodosRouter.delete("/delete", (req, res) => {
-  res.status(StatusCodes.OK).send("DELTE Todo");
 });
 
 TodosRouter.delete("/delete", (req, res) => {
